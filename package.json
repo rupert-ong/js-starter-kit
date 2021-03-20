@@ -4,7 +4,7 @@
   "description": "JavaScript development environment and starter kit",
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
-    "start": "nodemon --exec babel-node buildScripts/srcServer.js",
+    "start": "babel-node buildScripts/srcServer.js",
     "localtunnel": "lt --port 3000",
     "share": "npm-run-all -p start localtunnel"
   },

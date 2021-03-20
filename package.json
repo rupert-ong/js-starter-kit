@@ -2,7 +2,12 @@
   "name": "js-starter-kit",
   "version": "1.0.0",
   "description": "JavaScript development environment and starter kit",
-  "scripts": {},
+  "scripts": {
+    "prestart": "node buildScripts/startMessage.js",
+    "start": "node buildScripts/srcServer.js",
+    "localtunnel": "lt --port 3000",
+    "share": "npm-run-all -p start localtunnel"
+  },
   "author": "Rupert Ong",
   "license": "MIT",
   "dependencies": {

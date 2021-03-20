@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "JavaScript development environment and starter kit",
   "scripts": {
-    "prestart": "node buildScripts/startMessage.js",
-    "start": "node buildScripts/srcServer.js",
+    "prestart": "babel-node buildScripts/startMessage.js",
+    "start": "nodemon --exec babel-node buildScripts/srcServer.js",
     "localtunnel": "lt --port 3000",
     "share": "npm-run-all -p start localtunnel"
   },
@@ -38,6 +38,7 @@
     "localtunnel": "2.0.1",
     "mini-css-extract-plugin": "^1.3.9",
     "mocha": "8.3.0",
+    "nodemon": "^2.0.7",
     "npm-run-all": "4.1.5",
     "numeral": "2.0.6",
     "open": "7.4.2",

@@ -1,3 +1,4 @@
+import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
 
 export default {
@@ -9,7 +10,11 @@ export default {
     publicPath: "/",
     filename: "bundle.js",
   },
-  plugins: [],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "src/index.html",
+    }),
+  ],
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, use: ["babel-loader"] },

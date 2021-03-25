@@ -1,5 +1,11 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import path from "path";
+import dotenv from "dotenv";
+
+dotenv.config({
+  path: path.join(__dirname, ".env"),
+});
 
 export default {
   mode: "production",
@@ -16,12 +22,16 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/index.html",
+      trackJSToken: process.env.TRACK_JS_TOKEN,
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].[chunkhash].css",
     }),
   ],
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, use: ["babel-loader"] },
-      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+      { test: /\.css$/, use: [MiniCssExtractPlugin.loader, "css-loader"] },
     ],
   },
 };
